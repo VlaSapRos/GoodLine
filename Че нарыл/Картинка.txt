@@ -1,2 +1,0 @@
-Не знаю как в php, но в js можно вытащить регулярками. Ссылку на нужную вам картинку можно вытащить вот так
- console.log(str.match(/class=\"page_cover crisp_image _page_cover\" style=\"background-image: url\((https:\/\/.*jpg)/)[1]);
