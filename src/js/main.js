@@ -1,12 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
 
-function App() {
-  return(
-    <div>
-      <h1>Hello, world!</h1>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return(
+      <div>
+        <h1>Hello world!</h1>
+      </div>
+    );
+  }
 }
 
 export default App
