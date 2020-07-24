@@ -4,8 +4,6 @@ import ReactDOM, { render } from 'react-dom';
 export default class VkInit extends React.Component {
   componentDidMount() {
     VK.init({apiId: 7547501});
-    // VK.Auth.login((res) => console.log(res));
-    VK.Api.call('users.search', {q: "Владислав", fields: 'photo,screen_name' ,v:"5.73"}, function(r) {console.log(r.response);});
   }
   render(){
     return(
