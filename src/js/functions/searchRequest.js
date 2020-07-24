@@ -11,8 +11,10 @@ function searchRequest() {
   // })
   //   .then(r => r.json())
   //   .then(r => console.log(r))
+  
   var script = document.createElement('SCRIPT');
-  script.src = "https://api.vk.com/method/users.search?q='Vasya+Babich'v=5.120&callback=callbackFunc";
+  script.src = `https://api.vk.com/method/users.search?q='Vasya+Babich'&access_token=${accessToken}&v=5.120&callback=callbackFunc`;
+  function callbackFunc(response) {alert(response)}
   document.getElementsByTagName("head")[0].appendChild(script);
 }
 

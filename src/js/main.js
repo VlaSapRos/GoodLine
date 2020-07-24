@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM, { render } from 'react-dom';
 import Header from './components/Header.js'
+import VkInit from './components/VkInit.js'
+import Content from './components/Content.js'
 
 
 class App extends React.Component {
@@ -10,8 +12,9 @@ class App extends React.Component {
   render() {
     return(
       <div>
-        <h1>Hello world!</h1>
+        <VkInit></VkInit>
         <Header></Header>
+        <Content></Content>
       </div>
     );
   }

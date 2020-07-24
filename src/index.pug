@@ -3,10 +3,13 @@ html(lang='en')
   head
     //- script(src="https://kit.fontawesome.com/dab466896d.js" crossorigin="anonymous")
     title GoodLine
+    script(src="https://vk.com/js/api/openapi.js?168" type="text/javascript")
     //- link(rel="shortcut icon" href="./favicon.ico" type="image/x-icon")
   body
     div(id='root')
     a(href='https://oauth.vk.com/authorize?client_id=7547501&redirect_uri=http://localhost:8081/&display=popup&response_type=token') Авторизоваться ВК
     button(onclick='')
-    script(type="text/javascript") var script = document.createElement('SCRIPT'); script.src = "https://api.vk.com/method/users.get?user_ids=210700286&fields=bdate&access_token=${accessToken}&v=5.120&callback=callbackFunc"; document.getElementsByTagName("head")[0].appendChild(script); function callbackFunc(result) {alert(result.response)}
-    
+    //- script(type="text/javascript") var script = document.createElement('SCRIPT'); script.src = "https://api.vk.com/method/users.get?user_ids=210700286&fields=bdate&access_token=${accessToken}&v=5.120&callback=callbackFunc"; document.getElementsByTagName("head")[0].appendChild(script); function callbackFunc(result) {alert(result.response)}
+    section(id='scr1')
+    //- script(type="text/javascript") VK.UI.button('scr1');
+    //- script(type="text/javascript") VK.Api.call('users.search', {q: "Вася", fields: 'photo,screen_name' ,v:"5.73"}, function(r) {console.log(r.response);});

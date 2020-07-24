@@ -3,23 +3,24 @@ import ReactDOM, { render } from 'react-dom';
 import Authorize from './Authorize.js';
 import {retrievingAccessToken,accessToken} from '../functions/retrievingAccessToken.js';
 // import accessToken from '../functions/retrievingAccessToken.js';
-import searchRequest from '../functions/searchRequest.js';
+import PeopleSearch from './PeopleSearch.js';
+import GetAxios from './GetAxios.js'
 
-class Header extends React.Component {
+export default class Header extends React.Component {
   constructor(props) {
     super(props)
   }
   render() {
 
     return(
-      <div>
-        <button onClick={() => retrievingAccessToken()}>retrievingAccessToken</button> <br/>
-        <button onClick={() => searchRequest()}>searchRequest</button> <br/>
-        <button onClick={() => console.log(accessToken)}>accessToken</button> <br/>
-        <Authorize></Authorize>
+      <div className='header'>
+        <PeopleSearch></PeopleSearch>
+        {/* <button onClick={() => retrievingAccessToken()}>retrievingAccessToken</button> */}
+        {/* <button onClick={() => searchRequest()}>searchRequest</button> */}
+        {/* <button onClick={() => console.log(accessToken)}>accessToken</button> */}
+        {/* <Authorize></Authorize> */}
+        {/* <GetAxios></GetAxios> */}
       </div>
     )    
   }
 }
-
-export default Header;
