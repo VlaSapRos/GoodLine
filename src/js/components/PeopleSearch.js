@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM, { render } from 'react-dom';
+import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, ARRAY_CREATION} from '../redux/action.js'
 
 export default class PeopleSearch extends React.Component {
   constructor(props) {
@@ -24,9 +25,10 @@ export default class PeopleSearch extends React.Component {
         <img src = {currentValue.photo}></img>
         <h1>{currentValue.first_name+' '+currentValue.last_name}</h1>
       </li>)
-    })
-    this.props.recordResponse(usersList)
-    console.log(usersList)
+    });
+    this.props.store.dispatch({ type: ARRAY_CREATION, value: usersList });
+    // this.props.recordResponse(usersList)
+    // console.log(usersList)
   }
   handleChange(e) {
     this.setState({inputValue : e.target.value})

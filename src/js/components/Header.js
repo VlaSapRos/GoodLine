@@ -14,7 +14,7 @@ export default class Header extends React.Component {
 
     return(
       <div className='header'>
-        <PeopleSearch state={this.props.state} recordResponse={this.props.recordResponse}/>
+        <PeopleSearch storeRedux={this.props.storeRedux} state={this.props.state} recordResponse={this.props.recordResponse}/>
         {/* <button onClick={() => retrievingAccessToken()}>retrievingAccessToken</button> */}
         {/* <button onClick={() => searchRequest()}>searchRequest</button> */}
         {/* <button onClick={() => console.log(accessToken)}>accessToken</button> */}
