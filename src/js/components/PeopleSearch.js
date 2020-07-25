@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM, { render } from 'react-dom';
-import { preloaderBoolean, downloadFinished, countOffset, listCreation } from '../redux/actionCreator.js'
+import { connect } from 'react-redux';
+import {listCreation, searchRequest } from '../redux/actionCreator.js'
+import packing from '../functions/packing.js'
 
-export default class PeopleSearch extends React.Component {
+class PeopleSearch extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -16,11 +18,9 @@ export default class PeopleSearch extends React.Component {
   // }
   startSearch (value) {
     let searchRequest = value.replace(' ','+');
-    VK.Api.call('users.search', {q: searchRequest, fields: 'photo_max,screen_name', count : 10, offset : 0 ,v:"5.52"},(r) => {this.props.responseProcessing(r);console.log(r.response);});
-    // console.log(this.props.state.usersList);
-    // console.log(this.props);
-    
-    this.props.recordSearchRequest(searchRequest)
+    this.props.searchRequest(searchRequest)
+    VK.Api.call('users.search', {q: searchRequest, fields: 'photo_max,screen_name', count : 10, offset : 0 ,v:"5.52"},(r) => {this.props.listCreation(packing(r));console.log(r)});
+    // this.props.recordSearchRequest(searchRequest)
     
   }
   handleChange (e) {
@@ -36,5 +36,13 @@ export default class PeopleSearch extends React.Component {
     )
   }
 }
+const mapStateToProps = (state) => ({state})
 
-//
+const mapDispatchToProps = (dispatch) => ({
+  listCreation: (params) => dispatch(listCreation(params)),
+  searchRequest: (params) => dispatch(searchRequest(params)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PeopleSearch);
+
+//(r.response)

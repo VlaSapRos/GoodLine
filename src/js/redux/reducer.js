@@ -1,12 +1,12 @@
-import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION} from './action.js';
+import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION, SEARCH_REQUEST} from './action.js';
 
 export default function reducer(state, action) {
-  console.log('хуй',action.type,action.value,state);
   switch(action.type) {
-    case LIST_CREATION: return { usersList : action.value };
-    case PRELOADER_BOOLEAN: return { preloader: action.value };
-    case DOWNLOAD_FINISHED: return { usersList : store.getState().usersList.concat(action.value) }; // лучше отправлять уже готовое значение
-    case COUNT_OFFSET: return { offset : store.getState().offset + action.value }; // лучше отправлять уже готовое значение наверное
+    case LIST_CREATION: return {...state, usersList : action.value };
+    case PRELOADER_BOOLEAN: return {...state, preloader: action.value };
+    case DOWNLOAD_FINISHED: return {...state, usersList : state.usersList.concat(action.value) }; // лучше отправлять уже готовое значение
+    case COUNT_OFFSET: return {...state, offset : action.value }; // лучше отправлять уже готовое значение наверное
+    case SEARCH_REQUEST: return {...state, searchRequest : action.value }; // лучше отправлять уже готовое значение наверное
 
     default: return state;
   }

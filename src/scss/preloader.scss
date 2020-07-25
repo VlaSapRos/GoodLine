@@ -1,0 +1,45 @@
+:root{
+  --logo-size:70px;
+  --logo-half-size:40px;
+}
+
+.preloader{
+  display: flex;
+  margin-top: 10px;
+  width: 70px;
+  height: 70px;
+  transition: 1s;
+}
+
+.preloader__image_animate{
+  background-image: url(../static/preloader.svg);
+  background-size: 70px 70px;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+  transition: 0s linear;
+  animation: preloader 1s infinite 0ms running;
+  animation-timing-function: cubic-bezier(0, -0.01, 0.01, 0.01);
+}
+
+@keyframes preloader{
+  0%{
+      top: 0%;
+  }
+  0%{
+      top: 0%;;
+  }
+  75%{
+      top: 0%;; 
+  }
+  100%{
+      top: 0%;;
+  }
+  from{
+      transform: rotate(0deg);
+  }
+  to{
+      transform: rotate(360deg);
+  }
+}

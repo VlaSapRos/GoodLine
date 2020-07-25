@@ -1,6 +1,4 @@
-import React from 'react';
-
-import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION} from './action.js';
+import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION, SEARCH_REQUEST} from './action.js';
 
 function preloaderBoolean(value) {
   return {
@@ -23,12 +21,18 @@ function countOffset(value) {
   }
 }
 
-function listCreation(value,dispatch) {
-  console.log('жопа2',dispatch);
+function listCreation(value) {
   return {
     type: LIST_CREATION,
     value : value
   }
 }
 
-export { preloaderBoolean, downloadFinished, countOffset, listCreation }
+function searchRequest(value) {
+  return {
+    type: SEARCH_REQUEST,
+    value : value
+  }
+}
+
+export { preloaderBoolean, downloadFinished, countOffset, listCreation, searchRequest }

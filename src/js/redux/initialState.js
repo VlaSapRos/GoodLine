@@ -1,7 +1,8 @@
 const initialState = {
-  usersList: [0],
+  usersList: [],
   offset: 10,
   preloader: false,
+  searchRequest: undefined,
 };
 
 export default initialState;
