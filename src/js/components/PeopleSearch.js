@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
-import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, ARRAY_CREATION} from '../redux/action.js'
+import {LIST_CREATION} from '../store/action.js'
+import { listCreation } from '../store/actionCreator.js'
 
 export default class PeopleSearch extends React.Component {
   constructor(props) {
@@ -21,21 +21,21 @@ export default class PeopleSearch extends React.Component {
     let response = r.response.items;
     let usersList = response.map(function packing(currentValue, index) {
       return(
-      <li className='userBlock' key={index}>
+      <li className='user-block' key={index}>
         <img src = {currentValue.photo}></img>
         <h1>{currentValue.first_name+' '+currentValue.last_name}</h1>
       </li>)
     });
-    this.props.store.dispatch({ type: ARRAY_CREATION, value: usersList });
+    this.props.storeRedux.dispatch(listCreation(usersList));
     // this.props.recordResponse(usersList)
-    // console.log(usersList)
+    console.log(usersList)
+    console.log(this.props.storeRedux.getState())
   }
   handleChange(e) {
     this.setState({inputValue : e.target.value})
   }
   render(){
     const inputValue = this.state.inputValue;
-    const usersList = this.props.state.usersList;
     return (
       <div className='peopleSearch'>
         <input type='text' onChange={this.handleChange} className='peopleSearch__entry-field' id='input'/>

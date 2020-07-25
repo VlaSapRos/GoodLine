@@ -1,4 +1,5 @@
 import { createStore } from 'redux';
+import React from 'react';
 import reducer from './reducer.js';
 import initialState from './initialState.js';
 

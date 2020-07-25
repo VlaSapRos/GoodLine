@@ -1,3 +1,5 @@
+import React from 'react';
+
 const initialState = {
   usersList: [],
   offset: 10,

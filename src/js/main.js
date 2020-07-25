@@ -1,8 +1,5 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
-import Header from './components/Header.js'
 import VkInit from './components/VkInit.js'
-import Content from './components/Content.js'
 import Store from './components/Store.js'
 
 
@@ -14,7 +11,7 @@ class App extends React.Component {
     return(
       <>
       <VkInit/>
-      <Store/>
+      <Store storeRedux={this.props.storeRedux} />
       </>
     );
   }

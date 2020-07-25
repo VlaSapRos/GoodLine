@@ -1,14 +1,13 @@
 import React from 'react';
 import Header from './Header.js'
 import Content from './Content.js'
-import storeRedux from '../redux/storeRedux.js'
 
 export default class Store extends React.Component {
   constructor(props) {
     super(props)
     this.recordResponse = this.recordResponse.bind(this);
     this.state = { // может даже весь state
-      usersList : [[]], // скорее всего уберу
+      usersList : [[]] ,// скорее всего уберу
       count : 0 // тоже
     }
   }
@@ -23,10 +22,9 @@ export default class Store extends React.Component {
   {
     return(
       <>
-      <Header store={storeRedux} state={this.state} recordResponse={this.recordResponse}/>
-      <Content store={storeRedux} state={this.state}/>
+      <Header storeRedux={this.props.storeRedux} state={this.state} recordResponse={this.recordResponse}/>
+      <Content storeRedux={this.props.storeRedux} state={this.state}/>
       </>
     )
   }
 }
-

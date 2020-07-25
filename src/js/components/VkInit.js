@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
 
 export default class VkInit extends React.Component {
   componentDidMount() {

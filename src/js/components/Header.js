@@ -1,10 +1,5 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
-import Authorize from './Store.js';
-import {retrievingAccessToken,accessToken} from '../functions/retrievingAccessToken.js';
-// import accessToken from '../functions/retrievingAccessToken.js';
 import PeopleSearch from './PeopleSearch.js';
-import GetAxios from './GetAxios.js'
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -18,8 +13,6 @@ export default class Header extends React.Component {
         {/* <button onClick={() => retrievingAccessToken()}>retrievingAccessToken</button> */}
         {/* <button onClick={() => searchRequest()}>searchRequest</button> */}
         {/* <button onClick={() => console.log(accessToken)}>accessToken</button> */}
-        {/* <Authorize></Authorize> */}
-        {/* <GetAxios></GetAxios> */}
       </div>
     )    
   }

@@ -1,4 +1,6 @@
-import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, ARRAY_CREATION} from './action.js';
+import React from 'react';
+
+import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION} from './action.js';
 
 function preloaderBoolean(value) {
   return {
@@ -21,11 +23,11 @@ function countOffset(value) {
   }
 }
 
-function arrayCreation(value) {
+function listCreation(value) {
   return {
-    type: ARRAY_CREATION,
+    type: LIST_CREATION,
     value : value
   }
 }
 
-export {preloaderBoolean, downloadFinished, countOffset, arrayCreation}
+export { preloaderBoolean, downloadFinished, countOffset, listCreation }

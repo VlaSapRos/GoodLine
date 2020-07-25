@@ -12,7 +12,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     // через местную константу baseWebpackConfig
     port: 8081, // порт серва "облегчает жизнь другим серверам"
     overlay: {
-      warnings: true, //Вывод предупреждений в браузере
+      warnings: false, //Вывод предупреждений в браузере
       errors: true, //Вывод ошибок в браузере
     }
   },
