@@ -1,16 +1,17 @@
 import { bindActionCreators } from 'redux';
 import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION} from './action.js';
+import { preloaderBoolean, downloadFinished, countOffset, listCreation } from './actionCreator.js';
 
 function mapDispatchToProps(component) { 
     switch(component) {
-        case "NeedForRedux": return function(dispatch) {
+        case "PeopleSearch": return function(dispatch) {
             return {
-              listCreation: bindActionCreators(LIST_CREATION, dispatch)
+                listCreation: bindActionCreators(listCreation, dispatch)
             };
         };
-        case "Component_2": return function(dispatch) {
+        case "Store": return function(dispatch) {
             return {
-                change_value_2: bindActionCreators(action_2, dispatch)
+                listCreation: bindActionCreators(listCreation, dispatch)
             };
         };
         default: return undefined;
@@ -18,3 +19,5 @@ function mapDispatchToProps(component) {
 }
 
 export default mapDispatchToProps;
+
+// 

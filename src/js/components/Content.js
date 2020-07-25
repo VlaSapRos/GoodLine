@@ -32,7 +32,7 @@ export default class Content extends React.Component {
     });
     return(
       <div onScroll={this.scrolling} className='content'>
-        {/* <button onClick={() => console.log(this.state.offSet)}>Жми</button> */}
+        <button onClick={() => console.log(this.props.usersList)}>Жми</button>
         <ul>{usersList}</ul>
       </div>
     )

@@ -1,19 +1,33 @@
 function mapStateToProps(component) {
   switch(component) {
-      case "NeedForRedux": {
+      case "PeopleSearch": {
           return function (state) {
               return {
                 usersList: state.usersList
               };
           }
       }
-      case "Component_2": {
+      case "Store": {
           return function(state) {
               return {
-                preloader: state.preloader
+                usersList: state.usersList
               };
           }
       }
+      case "Content": {
+        return function(state) {
+            return {
+              usersList: state.usersList
+            };
+        }
+      }   
+      case "Content1": {
+        return function(state) {
+            return {
+              usersList: state.usersList
+            };
+        }
+      }   
       default: return undefined;
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM, { render } from 'react-dom';
+import { preloaderBoolean, downloadFinished, countOffset, listCreation } from '../redux/actionCreator.js'
 
 export default class PeopleSearch extends React.Component {
   constructor(props) {
@@ -10,11 +11,17 @@ export default class PeopleSearch extends React.Component {
       inputValue : '',
     };
   }
+  // componentDidMount() {
+  //   this.unsubscribe = store.subscribe(this.handleChange.bind(this))
+  // }
   startSearch (value) {
     let searchRequest = value.replace(' ','+');
-    VK.Api.call('users.search', {q: searchRequest, fields: 'photo_max,screen_name', count : 10, offset : 0 ,v:"5.52"},
-      (r) => {this.props.responseProcessing(r);console.log(r.response)});
+    VK.Api.call('users.search', {q: searchRequest, fields: 'photo_max,screen_name', count : 10, offset : 0 ,v:"5.52"},(r) => {this.props.responseProcessing(r);console.log(r.response);});
+    // console.log(this.props.state.usersList);
+    // console.log(this.props);
+    
     this.props.recordSearchRequest(searchRequest)
+    
   }
   handleChange (e) {
     this.setState({inputValue : e.target.value})
@@ -29,3 +36,5 @@ export default class PeopleSearch extends React.Component {
     )
   }
 }
+
+//

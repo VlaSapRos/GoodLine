@@ -1,5 +1,5 @@
 const initialState = {
-  usersList: [1],
+  usersList: [0],
   offset: 10,
   preloader: false,
 };

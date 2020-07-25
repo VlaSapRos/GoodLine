@@ -23,7 +23,8 @@ function countOffset(value) {
   }
 }
 
-function listCreation(value) {
+function listCreation(value,dispatch) {
+  console.log('жопа2',dispatch);
   return {
     type: LIST_CREATION,
     value : value

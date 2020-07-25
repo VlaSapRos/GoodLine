@@ -1,6 +1,7 @@
 import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION} from './action.js';
 
 export default function reducer(state, action) {
+  console.log('хуй',action.type,action.value,state);
   switch(action.type) {
     case LIST_CREATION: return { usersList : action.value };
     case PRELOADER_BOOLEAN: return { preloader: action.value };
