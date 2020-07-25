@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
 import Store from './components/Store.js'
 import VkInit from './components/VkInit.js'
 
+
+// ReactDOM.render(COMPONENT_1_W, document.getElementById('root'));
 
 class App extends React.Component {
   constructor(props) {
@@ -10,10 +11,10 @@ class App extends React.Component {
   }
   render() {
     return(
-      <div>
+      <>
         <VkInit></VkInit>
         <Store></Store>
-      </div>
+      </>
     );
   }
 }

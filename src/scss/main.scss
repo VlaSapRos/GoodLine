@@ -1,2 +1,8 @@
 @import './header.scss';
-@import './user-block.scss';
+@import './content__user-block.scss';
+@import './content.scss';
+
+ul {
+  margin: 0;
+  padding: 0;
+}

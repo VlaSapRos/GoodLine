@@ -10,7 +10,7 @@ export default class Header extends React.Component {
 
     return(
       <div className='header'>
-        <PeopleSearch state={this.props.state} recordResponse={this.props.recordResponse}></PeopleSearch>
+        <PeopleSearch state={this.props.state} recordResponse={this.props.recordResponse} recordSearchRequest={this.props.recordSearchRequest} responseProcessing={this.props.responseProcessing}></PeopleSearch>
         {/* <button onClick={() => retrievingAccessToken()}>retrievingAccessToken</button> */}
         {/* <button onClick={() => searchRequest()}>searchRequest</button> */}
         {/* <button onClick={() => console.log(accessToken)}>accessToken</button> */}

@@ -3,7 +3,9 @@
   align-items: center;
   vertical-align: center;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 750px;
+  // min-width: 268px;
   height: 37px;
-  background: linear-gradient(orange, red)
+  box-sizing: border-box;
+  background: linear-gradient(Yellow, DarkOrange)
 }

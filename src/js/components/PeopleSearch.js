@@ -6,27 +6,15 @@ export default class PeopleSearch extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.startSearch = this.startSearch.bind(this);
-    this.responseProcessing = this.responseProcessing.bind(this);
     this.state = {
       inputValue : '',
     };
   }
   startSearch (value) {
     let searchRequest = value.replace(' ','+');
-    VK.Api.call('users.search', {q: searchRequest, fields: 'photo,screen_name', count : 10, offset : 0 ,v:"5.120"},
-      (r) => {this.responseProcessing(r);console.log(r.response)});
-  }
-  responseProcessing(r){
-    let response = r.response.items;
-    let newUsersList = response.map(function packing(currentValue, index) {
-      return(
-      <li className='user-block' key={index}>
-        <img src = {currentValue.photo}></img>
-        <h1>{currentValue.first_name+' '+currentValue.last_name}</h1>
-      </li>)
-    });
-    console.log(newUsersList);
-    this.props.recordResponse(newUsersList)
+    VK.Api.call('users.search', {q: searchRequest, fields: 'photo_max,screen_name', count : 10, offset : 0 ,v:"5.52"},
+      (r) => {this.props.responseProcessing(r);console.log(r.response)});
+    this.props.recordSearchRequest(searchRequest)
   }
   handleChange (e) {
     this.setState({inputValue : e.target.value})
