@@ -24,8 +24,7 @@ module.exports = {
     paths: PATHS,
   },
   entry: {
-    app: PATHS.src, // Потому что можно писать не путь к файлу как было ('./src/index.js') а просто к папке где лежит индекс.джс ('./src/'), а он уже есть в константе PATHS
-    // lk: `${PATHS.src}/lk.js`// Для образец для дополнительной точки входа
+    app: PATHS.src,
   },
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
@@ -55,30 +54,30 @@ module.exports = {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]' //[ext] = (png|jpg|gif|svg) (одно из)
+          name: '[name].[ext]'
         }
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]' //[ext] = (png|jpg|gif|svg) (одно из)
+          name: '[name].[ext]'
         }
       },
       {
         test: /\.scss$/,
-        use: [ //В масив use лучше передавать данные объектами (типо в скобочках {})
+        use: [
           'style-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            options: { sourceMap: true } // sourceMap - Это карта сайта(?) options:{} - это конфигурация "css-loader"
+            options: { sourceMap: true }
           },{
             loader: "postcss-loader",
-            options: { sourceMap: true, config: { path: `${PATHS.config}/postcss.config.js`} } // sourceMap - Это карта сайта(?) options:{} - это конфигурация "css-loader"
+            options: { sourceMap: true, config: { path: `${PATHS.config}/postcss.config.js`} }
           },{
             loader: "sass-loader",
-            options: { sourceMap: true } // sourceMap - Это карта сайта(?) options:{} - это конфигурация "css-loader"
+            options: { sourceMap: true } 
           },
         ]
       },
@@ -89,11 +88,11 @@ module.exports = {
         MiniCssExtractPlugin.loader,
         {
           loader: "css-loader",
-          options: { sourceMap: true } // sourceMap - Это карта сайта(?) options:{} - это конфигурация "css-loader"
+          options: { sourceMap: true }
         },
         {
           loader: "postcss-loader",
-          options: { sourceMap: true, config: { path: `${PATHS.config}/postcss.config.js`}} // sourceMap - Это карта сайта(?) options:{} - это конфигурация "css-loader"
+          options: { sourceMap: true, config: { path: `${PATHS.config}/postcss.config.js`}}
         }
       ]
     },

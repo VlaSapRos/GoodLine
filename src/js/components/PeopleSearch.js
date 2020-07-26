@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM, { render } from 'react-dom';
 import { connect } from 'react-redux';
-import {listCreation, searchRequest, сlearField, saveResponse, changePage} from '../redux/actionCreator.js'
-// import packing from '../functions/packing.js'
+import {listCreation, searchRequest, changePage} from '../redux/actionCreator.js'
 
 class PeopleSearch extends React.Component {
   constructor(props) {
@@ -18,7 +17,6 @@ class PeopleSearch extends React.Component {
     this.props.changePage('SEARCH')
     let contentScrollTop = this.props.state.contentTarget;
     contentScrollTop.scrollTop = 0;
-    // div.content
     let searchRequest = value.replace(' ','+');
     this.props.searchRequest(searchRequest)
     VK.Api.call('users.search', {q: searchRequest, fields: 'photo_max,screen_name', count : 10, offset : 0 ,v:"5.52"},(r) => {
@@ -44,9 +42,7 @@ const mapStateToProps = (state) => ({state})
 
 const mapDispatchToProps = (dispatch) => ({
   listCreation: (params) => dispatch(listCreation(params)),
-  saveResponse: (params) => dispatch(saveResponse(params)),
   searchRequest: (params) => dispatch(searchRequest(params)),
-  сlearField: (params) => dispatch(сlearField(params)),
   changePage: (params) => dispatch(changePage(params)),
 })
 

@@ -31,23 +31,12 @@ class Profile extends React.Component {
         var fName = this.props.state.profileInfo.first_name;
       } else {var fName = null;}
       if (typeof this.props.state.profileInfo.nickname !== 'undefined') {
-        // console.log(this.props.state.profileInfo.nickname);
         var nName = this.props.state.profileInfo.nickname;
       } else {var nName = null;}
       if (typeof this.props.state.profileInfo.last_name !== 'undefined') {
-        // console.log(this.props.state.profileInfo.last_name);
         var lName = this.props.state.profileInfo.last_name;
       } else {var lName = null;}
-      if (typeof this.props.state.profileInfo.maiden_name !== 'undefined') {
-        // console.log(this.props.state.profileInfo.maiden_name);
-        var mName = this.props.state.profileInfo.maiden_name;
-      } else {var mName = null;}
-      if (typeof this.props.state.profileInfo.verified !== 'undefined') {
-        // console.log(this.props.state.profileInfo.verified);
-        var verif = this.props.state.profileInfo.verified;
-      } else {var verif = null;}
       if (typeof this.props.state.profileInfo.online !== 'undefined') {
-        // console.log(this.props.state.profileInfo.online);
         var online = this.props.state.profileInfo.online
         if (online) {online='да'}
         else {online='нет'}
@@ -168,7 +157,7 @@ class Profile extends React.Component {
             return(langs)
           })
         }
-      } else {var views = null;} // Это объект 
+      } else {var views = null;}
       if (typeof this.props.state.profileInfo.occupation !== 'undefined'  && this.props.state.profileInfo.occupation.length !== 0) {
         console.log(this.props.state.profileInfo.occupation);
         var work = this.props.state.profileInfo.occupation;
@@ -228,7 +217,7 @@ class Profile extends React.Component {
       <div className="block1">
         <img className='photo' src={photo} vspace="5" hspace="5"/>
         <div className="block1__elm1">
-        <h1>{fName+' '+lName}</h1>
+        <h1>{fName+' '+nName+' '+lName}</h1>
           <h3>Статус:<i>{status}</i></h3>
           <h4>Онлайн:<i>{online}</i></h4>
           <h4>День рождения {bDate}</h4>
