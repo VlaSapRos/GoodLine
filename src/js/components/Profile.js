@@ -123,8 +123,51 @@ class Profile extends React.Component {
         var family = this.props.state.profileInfo.relatives;
       } else {var family = null;} // Это объект
       if (typeof this.props.state.profileInfo.personal !== 'undefined' && this.props.state.profileInfo.personal.length !== 0) {
-        // console.log(this.props.state.profileInfo.personal);
+        console.log(this.props.state.profileInfo.personal);
         var views = this.props.state.profileInfo.personal;
+        switch(views.political) {
+          case 1 : views.political = 'коммунистические'; break;
+          case 2 : views.political = 'социалистические'; break;
+          case 3 : views.political = 'умеренные'; break;
+          case 4 : views.political = 'либеральные'; break;
+          case 5 : views.political = 'консервативные'; break;
+          case 6 : views.political = 'монархические'; break;
+          case 7 : views.political = 'ультраконсервативные'; break;
+          case 8 : views.political = 'индифферентные'; break;
+          case 9 : views.political = 'либертарианские'; break;
+        }
+        switch(views.people_main) {
+          case 1 : views.people_main = 'ум и креативность'; break;
+          case 2 : views.people_main = 'доброта и честность'; break;
+          case 3 : views.people_main = 'красота и здоровье'; break;
+          case 4 : views.people_main = 'власть и богатство'; break;
+          case 5 : views.people_main = 'смелость и упорство'; break;
+          case 6 : views.people_main = 'юмор и жизнелюбие'; break;
+        }       
+        switch(views.life_main) {
+          case 1 : views.life_main = 'семья и дети'; break;
+          case 2 : views.life_main = 'карьера и деньги'; break;
+          case 3 : views.life_main = 'развлечения и отдых'; break;
+          case 4 : views.life_main = 'наука и исследования'; break;
+          case 5 : views.life_main = 'совершенствование мира'; break;
+          case 6 : views.life_main = 'саморазвитие'; break;
+          case 7 : views.life_main = 'красота и искусство'; break;
+          case 8 : views.life_main = 'слава и влияние'; break;
+        }  
+        switch(views.smoking) {
+          case 1 : views.smoking = 'резко негативное'; break;
+          case 2 : views.smoking = 'негативное'; break;
+          case 3 : views.smoking = 'компромиссное'; break;
+          case 4 : views.smoking = 'нейтральное'; break;
+          case 5 : views.smoking = 'положительное'; break;
+        }        
+        switch(views.alcohol) {
+          case 1 : views.alcohol = 'резко негативное'; break;
+          case 2 : views.alcohol = 'негативное'; break;
+          case 3 : views.alcohol = 'компромиссное'; break;
+          case 4 : views.alcohol = 'нейтральное'; break;
+          case 5 : views.alcohol = 'положительное'; break;
+        }
       } else {var views = null;} // Это объект 
       if (typeof this.props.state.profileInfo.occupation !== 'undefined'  && this.props.state.profileInfo.occupation.length !== 0) {
         // console.log(this.props.state.profileInfo.occupation);
@@ -215,19 +258,15 @@ class Profile extends React.Component {
         <p>Родной город:{homeTown}</p>
         <p>Семейное положение:{sp}</p>
         <p>Обо мне:{about}</p>
-        {/* sp
-          1 — не женат/не замужем;
-          2 — есть друг/есть подруга;
-          3 — помолвлен/помолвлена;
-          4 — женат/замужем;
-          5 — всё сложно;
-          6 — в активном поиске;
-          7 — влюблён/влюблена;
-          8 — в гражданском браке;
-          0 — не указано.
-          relation_partner
-            id
-            name?
+        <h4>Взгляды:</h4>
+        <ul>
+          <li>Политические:{views.political}</li>
+          <li>Главное в людях:{views.people_main}</li>
+          <li>Главное в жизни:{views.life_main}</li>
+          <li>Отношение к курению:{views.smoking}</li>
+          <li>Отношение к алкоголю:{views.alcohol}</li>
+        </ul>
+        {/*
         relatives
           id (integer) — идентификатор пользователя;
           name (string) — имя родственника (если родственник не является пользователем ВКонтакте, то предыдущее значение id возвращено не будет);
