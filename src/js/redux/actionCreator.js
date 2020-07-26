@@ -1,4 +1,4 @@
-import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION, SEARCH_REQUEST, TARGET_TRANSFER} from './action.js';
+import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION, SEARCH_REQUEST, TARGET_TRANSFER, CHANGE_PAGE, SAVE_RESPONSE, SAVE_ID, SAVE_PROFILE_INFO} from './action.js';
 
 function preloaderBoolean(value) {
   return {
@@ -42,12 +42,33 @@ function targetTransfer(value) {
   }
 }
 
-// function scrollTopZero(value) {
-//   return {
-//     type: SCROLL_TOP_ZERO,
-//     value : value
-//   }
-// }
+function changePage(value) {
+  return {
+    type: CHANGE_PAGE,
+    value : value
+  }
+}
+
+function saveResponse(value) {
+  return {
+    type: SAVE_RESPONSE,
+    value : value
+  }
+}
+
+function saveId(value) {
+  return {
+    type: SAVE_ID,
+    value : value
+  }
+}
+
+function saveProfileInfo(value) {
+  return {
+    type: SAVE_PROFILE_INFO,
+    value : value
+  }
+}
 
 
-export { preloaderBoolean, downloadFinished, countOffset, listCreation, searchRequest, targetTransfer}
+export { preloaderBoolean, downloadFinished, countOffset, listCreation, searchRequest, targetTransfer, changePage, saveResponse, saveId, saveProfileInfo}

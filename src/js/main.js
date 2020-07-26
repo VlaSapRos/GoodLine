@@ -1,5 +1,5 @@
 import React from 'react';
-import Store from './components/Store.js'
+import StoreReact from './components/StoreReact.js'
 import VkInit from './components/VkInit.js'
 
 class App extends React.Component {
@@ -10,7 +10,7 @@ class App extends React.Component {
     return(
       <>
         <VkInit></VkInit>
-        <Store/>
+        <StoreReact/>
       </>
     );
   }

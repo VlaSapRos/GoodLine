@@ -4,6 +4,10 @@ const initialState = {
   preloader: false,
   searchRequest: undefined,
   contentTarget: undefined,
+  page: 'SEARCH',
+  response: [],
+  id: undefined,
+  profileInfo: undefined,
 };
 
 export default initialState;

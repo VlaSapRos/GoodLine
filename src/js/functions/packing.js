@@ -1,13 +1,12 @@
 import React from 'react';
-
-export default function packing (r) {
+import ListItem from '../components/ListItems.js'
   let items = r.response.items;
   let newUsersList = items.map(function (currentValue, index) {
     return(
-      <li className='content__user-block'  key={currentValue.id}>
+      <ListItem key={currentValue.id}>
         <img src = {currentValue.photo_max}></img>
         <h1>{currentValue.first_name+' '+currentValue.last_name}</h1>
-      </li>)
+      </ListItem>)
   })
   return (newUsersList)
 }

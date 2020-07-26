@@ -28,7 +28,7 @@ class StoreReact extends React.Component {
   {
     return(
       <>
-        <Header  recordResponse={this.recordResponse} recordSearchRequest={this.recordSearchRequest} responseProcessing={this.responseProcessing}/>
+        <Header />
         <Content />
         <button onClick={() => console.log(this.props.usersList)}>usersList</button>
       </>
