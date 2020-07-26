@@ -43,6 +43,11 @@ class Profile extends React.Component {
       } else {var online = null;}
       if (typeof this.props.state.profileInfo.last_seen !== 'undefined') {
         var lastSeen = this.props.state.profileInfo.last_seen
+        var date = new Date(lastSeen*1000);
+        var hours = date.getHours();
+        var minutes = "0" + date.getMinutes();
+        var seconds = "0" + date.getSeconds();
+        var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
       } else {var lastSeen = null;}
       if (typeof this.props.state.profileInfo.status !== 'undefined') {
         var status = this.props.state.profileInfo.status;
@@ -172,7 +177,6 @@ class Profile extends React.Component {
         }
       } else {var views = null;}
       if (typeof this.props.state.profileInfo.occupation !== 'undefined'  && this.props.state.profileInfo.occupation.length !== 0) {
-        console.log(this.props.state.profileInfo.occupation);
         var work = this.props.state.profileInfo.occupation;
         var type;
         var nameWork = '';
@@ -182,25 +186,19 @@ class Profile extends React.Component {
           case 'university' : type = 'Учусь в ВУЗе'; break;
         }
         if(typeof work.name !== 'undefined'){nameWork = work.name}
-      } else {var work = null;} // Это объект
+      } else {var work = null;}
       if (typeof this.props.state.profileInfo.schools !== 'undefined' && this.props.state.profileInfo.schools.length !== 0) {
-        // console.log(this.props.state.profileInfo.schools);
-        var school = this.props.state.profileInfo.schools;
-      } else {var school = null;} // Это объект
+      } else {var school = null;} 
       if (typeof this.props.state.profileInfo.education !== 'undefined' && this.props.state.profileInfo.education.length !== 0) {
-        // console.log(this.props.state.profileInfo.education);
         var education = this.props.state.profileInfo.education;
-      } else {var education = null;} // Это объект
+      } else {var education = null;}
       if (typeof this.props.state.profileInfo.universities !== 'undefined' && this.props.state.profileInfo.universities.length !== 0) {
-        // console.log(this.props.state.profileInfo.universities);
         var universities = this.props.state.profileInfo.universities;
-      } else {var universities = null;} // Это объект
+      } else {var universities = null;} 
       if (typeof this.props.state.profileInfo.military !== 'undefined'  && this.props.state.profileInfo.military.length !== 0) {
-        // console.log(this.props.state.profileInfo.military);
         var military = this.props.state.profileInfo.military;
-      } else {var military = null;}  // Это объект
+      } else {var military = null;}
       if (typeof this.props.state.profileInfo.career !== 'undefined'  && this.props.state.profileInfo.career.length !== 0 ) {
-        // console.log(this.props.state.profileInfo.career);
         var career = this.props.state.profileInfo.career;
       } else {var career = null;}
       if (typeof this.props.state.profileInfo.interests !== 'undefined') {
@@ -233,13 +231,12 @@ class Profile extends React.Component {
         <h1>{fName+' '+nName+' '+lName}</h1>
           <h3>Статус:<i>{status}</i></h3>
           <h4>Онлайн:<i>{online}</i></h4>
+          {/* <h4>Заходил:<i>{formattedTime}</i></h4> */}
           <h4>День рождения {bDate}</h4>
           <h4>Пол: {gender}</h4>
           <div className="block1__elm2">
           <p>Краткое имя страницы: {pageName}</p>
           <p>Сайт:{webSite}</p>
-          {/* phoneNumber 
-          contacts */}
           </div>
         </div>
       </div>
@@ -273,45 +270,6 @@ class Profile extends React.Component {
         <p>Языки:{langs}</p>
         <p>Занятость:{type}</p>
         <p>Место занятости:{nameWork}</p>
-        {/*
-        schools
-          name (string) — наименование школы
-          year_from (integer) — год начала обучения;
-          year_to (integer) — год окончания обучения;
-          year_graduated (integer) — год выпуска;
-          class (string) — буква класса;
-          speciality (string) — специализация;
-          type_str (string) — название типа. Возможные значения для пар type-typeStr:
-            0 — "школа";
-            1 — "гимназия";
-            2 —"лицей";
-            3 — "школа-интернат";
-            4 — "школа вечерняя";
-            5 — "школа музыкальная";
-            6 — "школа спортивная";
-            7 — "школа художественная";
-            8 — "колледж";
-            9 — "профессиональный лицей";
-            10 — "техникум";
-            11 — "ПТУ";
-            12 — "училище";
-            13 — "школа искусств".
-        education
-          university_name (string) — название университета;
-          faculty_name (string)— название факультета; 
-          graduation (integer) — год окончания.
-        universities
-          name (string) — наименование университета;
-          faculty_name (string) — наименование факультета;
-          chair_name (string) — наименование кафедры;
-          graduation (integer) — год окончания обучения;
-          education_form (string) — форма обучения;
-          education_status (string) — статус (например, «Выпускник (специалист)»).
-        military
-          unit (string) — номер части;
-          from (integer) — год начала службы;
-          until (integer) — год окончания службы. */}
-        {/* <p>Карьера:{career}</p> */}
         <p>Интересы:{interests}</p>
         <p>Любимые цитаты:{quotes}</p>
         <p>Любимые книги:{books}</p>
