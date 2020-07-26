@@ -1,4 +1,4 @@
-import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION, SEARCH_REQUEST} from './action.js';
+import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION, SEARCH_REQUEST, TARGET_TRANSFER} from './action.js';
 
 function preloaderBoolean(value) {
   return {
@@ -35,4 +35,19 @@ function searchRequest(value) {
   }
 }
 
-export { preloaderBoolean, downloadFinished, countOffset, listCreation, searchRequest }
+function targetTransfer(value) {
+  return {
+    type: TARGET_TRANSFER,
+    value : value
+  }
+}
+
+// function scrollTopZero(value) {
+//   return {
+//     type: SCROLL_TOP_ZERO,
+//     value : value
+//   }
+// }
+
+
+export { preloaderBoolean, downloadFinished, countOffset, listCreation, searchRequest, targetTransfer}

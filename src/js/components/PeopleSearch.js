@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM, { render } from 'react-dom';
 import { connect } from 'react-redux';
-import {listCreation, searchRequest } from '../redux/actionCreator.js'
+import {listCreation, searchRequest, сlearField } from '../redux/actionCreator.js'
 import packing from '../functions/packing.js'
 
 class PeopleSearch extends React.Component {
@@ -13,13 +13,16 @@ class PeopleSearch extends React.Component {
       inputValue : '',
     };
   }
-  // componentDidMount() {
-  //   this.unsubscribe = store.subscribe(this.handleChange.bind(this))
-  // }
+
   startSearch (value) {
+    let contentScrollTop = this.props.state.contentTarget;
+    console.log(contentScrollTop.scrollTop);
+    contentScrollTop.scrollTop = 0;
+    console.log(contentScrollTop.scrollTop);
+    // div.content
     let searchRequest = value.replace(' ','+');
     this.props.searchRequest(searchRequest)
-    VK.Api.call('users.search', {q: searchRequest, fields: 'photo_max,screen_name', count : 10, offset : 0 ,v:"5.52"},(r) => {this.props.listCreation(packing(r));console.log(r)});
+    VK.Api.call('users.search', {q: searchRequest, fields: 'photo_max,screen_name', count : 10, offset : 0 ,v:"5.52"},(r) => {this.props.listCreation(packing(r))})
     // this.props.recordSearchRequest(searchRequest)
     
   }
@@ -41,6 +44,7 @@ const mapStateToProps = (state) => ({state})
 const mapDispatchToProps = (dispatch) => ({
   listCreation: (params) => dispatch(listCreation(params)),
   searchRequest: (params) => dispatch(searchRequest(params)),
+  сlearField: (params) => dispatch(сlearField(params)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PeopleSearch);
