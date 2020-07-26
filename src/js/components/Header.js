@@ -19,7 +19,12 @@ class Header extends React.Component {
       return(
         <div className='header'>
           <PeopleSearch/>
-          <button onClick={()=>{ this.props.changePage('SEARCH') }}>Назад</button>
+          <button onClick={()=>{ 
+            this.props.changePage('SEARCH');
+            let contentScrollTop = this.props.state.contentTarget;
+            let scrollTop = this.props.state.scroll;
+            contentScrollTop.scrollTop = scrollTop; 
+            }}>Назад</button>
         </div>
       )    
     }

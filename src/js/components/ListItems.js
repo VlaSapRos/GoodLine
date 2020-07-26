@@ -13,7 +13,6 @@ class ListItem extends React.Component {
     let goToPage = (id) => {
       this.props.changePage('PROFILE')
       this.props.saveId(id)
-      console.log(this.props.state.page)
     }
     let items = this.props.state.usersList;
     let newUsersList = items.map(function (currentValue, index) {

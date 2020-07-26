@@ -30,7 +30,6 @@ class StoreReact extends React.Component {
       <>
         <Header />
         <Content />
-        <button onClick={() => console.log(this.props.usersList)}>usersList</button>
       </>
     )
   }

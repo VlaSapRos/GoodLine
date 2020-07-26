@@ -24,10 +24,7 @@ class PeopleSearch extends React.Component {
     VK.Api.call('users.search', {q: searchRequest, fields: 'photo_max,screen_name', count : 10, offset : 0 ,v:"5.52"},(r) => {
       let items = r.response.items 
       this.props.listCreation(items)
-      // this.props.saveResponse(items)
-      console.log(this.props.state.response);
     })
-    // this.props.recordSearchRequest(searchRequest)
     
   }
   handleChange (e) {
@@ -54,5 +51,3 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PeopleSearch);
-
-//(r.response)

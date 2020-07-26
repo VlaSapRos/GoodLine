@@ -4,11 +4,6 @@ import {saveProfileInfo} from '../redux/actionCreator.js'
 
 
 class Profile extends React.Component {
-  constructor(props) {
-    super(props)
-    // this.packingResponse = this.packingResponse.bind(this)
-  }
-  
   componentDidMount() {
     this.extendedQuery(this.props.state.id)
   }
@@ -16,192 +11,177 @@ class Profile extends React.Component {
   extendedQuery(id) {
     VK.Api.call('users.get', 
     {user_ids: id,
-    fields: 'id,first_name,last_name,is_closed,about,activities,bdate,books,career,city,common_count,connections,contacts,counters,domain,country,education,games,home_town,interests,last_seen,military,movies,music,nickname,occupation,online,personal,photo_200_orig,photo_400_orig,photo_max_orig,quotes,relatives,relation,schools,screen_name,site,status,tv,universities,verified,',
+    fields: 'sex,id,first_name,last_name,is_closed,about,activities,bdate,books,career,city,common_count,connections,contacts,counters,domain,country,education,games,home_town,interests,last_seen,military,movies,music,nickname,occupation,online,personal,photo_200_orig,photo_400_orig,photo_max_orig,quotes,relatives,relation,schools,screen_name,site,status,tv,universities,verified,',
     count : 10, offset : 0 ,v:"5.52"
     },(r) => {
       let info = r.response[0];
       this.props.saveProfileInfo(info);
-      // if (new Boolean(r)) {
-      //   this.packingResponse()
-      // }
     })
   }
-
-  // packingResponse() {
-    
-  // }
-
+  
   render() {
-    
+    const checkProperty = () => {
+
+    }
     let id = this.props.state.id;
     console.log(this.props.state.profileInfo);
     if (typeof this.props.state.profileInfo !== 'undefined') {
-      if (typeof this.props.state.profileInfo.photo_max_orig !== 'undefined') {
-        console.log(this.props.state.profileInfo.photo_max_orig);
-        var photo = this.props.state.profileInfo.photo_max_orig;
-      } else {var photo = null;}
+      var photo = this.props.state.profileInfo.photo_max_orig;
       if (typeof this.props.state.profileInfo.first_name !== 'undefined') {
-        console.log(this.props.state.profileInfo.first_name);
         var fName = this.props.state.profileInfo.first_name;
       } else {var fName = null;}
       if (typeof this.props.state.profileInfo.nickname !== 'undefined') {
-        console.log(this.props.state.profileInfo.nickname);
+        // console.log(this.props.state.profileInfo.nickname);
         var nName = this.props.state.profileInfo.nickname;
       } else {var nName = null;}
       if (typeof this.props.state.profileInfo.last_name !== 'undefined') {
-        console.log(this.props.state.profileInfo.last_name);
+        // console.log(this.props.state.profileInfo.last_name);
         var lName = this.props.state.profileInfo.last_name;
       } else {var lName = null;}
       if (typeof this.props.state.profileInfo.maiden_name !== 'undefined') {
-        console.log(this.props.state.profileInfo.maiden_name);
+        // console.log(this.props.state.profileInfo.maiden_name);
         var mName = this.props.state.profileInfo.maiden_name;
       } else {var mName = null;}
       if (typeof this.props.state.profileInfo.verified !== 'undefined') {
-        console.log(this.props.state.profileInfo.verified);
+        // console.log(this.props.state.profileInfo.verified);
         var verif = this.props.state.profileInfo.verified;
       } else {var verif = null;}
       if (typeof this.props.state.profileInfo.online !== 'undefined') {
-        console.log(this.props.state.profileInfo.online);
+        // console.log(this.props.state.profileInfo.online);
         var online = this.props.state.profileInfo.online
       } else {var online = null;}
       if (typeof this.props.state.profileInfo.last_seen !== 'undefined') {
-        console.log(this.props.state.profileInfo.last_seen);
+        // console.log(this.props.state.profileInfo.last_seen);
         var lastSeen = this.props.state.profileInfo.last_seen
       } else {var lastSeen = null;}
       if (typeof this.props.state.profileInfo.status !== 'undefined') {
-        console.log(this.props.state.profileInfo.status);
         var status = this.props.state.profileInfo.status;
       } else {var status = null;}
       if (typeof this.props.state.profileInfo.bdate !== 'undefined') {
-        console.log(this.props.state.profileInfo.bdate);
         var bDate = this.props.state.profileInfo.bdate;
       } else {var bDate = null;}
-      console.log(this.props.state.profileInfo.sex);
       var gender = this.props.state.profileInfo.sex;
       if (gender == 2) {gender = 'Женский'}
       else if (gender == 1) {gender = 'Мужской'}
       else if (gender == 1) {gender = 'Пол не указан'}
       else {var gender = null;} // 1 или 2 или 0
       if (typeof this.props.state.profileInfo.domain !== 'undefined') {
-        console.log(this.props.state.profileInfo.domain);
+        // console.log(this.props.state.profileInfo.domain);
         var domain = this.props.state.profileInfo.domain;
       } else {var domain = null;}
       if (typeof this.props.state.profileInfo.screen_name !== 'undefined') {
-        console.log(this.props.state.profileInfo.screen_name);
+        // console.log(this.props.state.profileInfo.screen_name);
         var pageName = this.props.state.profileInfo.screen_name;
       } else {var pageName = null;}
       if (typeof this.props.state.profileInfo.contacts !== 'undefined') {
-        console.log(this.props.state.profileInfo.contacts);
+        // console.log(this.props.state.profileInfo.contacts);
         var phoneNumber = this.props.state.profileInfo.contacts;
       } else {var phoneNumber = null;} // это объект
       if (typeof this.props.state.profileInfo.connections !== 'undefined') {
-        console.log(this.props.state.profileInfo.connections);
+        // console.log(this.props.state.profileInfo.connections);
         var contacts = this.props.state.profileInfo.connections;
       } else {var contacts = null;} // Это объект
       if (typeof this.props.state.profileInfo.site !== 'undefined') {
-        console.log(this.props.state.profileInfo.site);
+        // console.log(this.props.state.profileInfo.site);
         var webSite = this.props.state.profileInfo.site;
       } else {var webSite = null;}
       if (typeof this.props.state.profileInfo.counters !== 'undefined') {
-        console.log(this.props.state.profileInfo.counters);
+        // console.log(this.props.state.profileInfo.counters);
         var count = this.props.state.profileInfo.counters;
       } else {var count = null;} // Это объект
       if (typeof this.props.state.profileInfo.about !== 'undefined') {
-        console.log(this.props.state.profileInfo.about);
+        // console.log(this.props.state.profileInfo.about);
         var about = this.props.state.profileInfo.about;
       } else {var about = null;}
       if (typeof this.props.state.profileInfo.country!== 'undefined') {
-        console.log(this.props.state.profileInfo.country.title);
+        // console.log(this.props.state.profileInfo.country.title);
         var country =  this.props.state.profileInfo.country.title;
       } else {var country = null;} // Это объект
       if (typeof this.props.state.profileInfo.city !== 'undefined') {
-        console.log(this.props.state.profileInfo.city.title);
+        // console.log(this.props.state.profileInfo.city.title);
         var city = this.props.state.profileInfo.city.title;
       } else {var city = null;}// Это объект
       if (typeof this.props.state.profileInfo.home_town !== 'undefined') {
-        console.log(this.props.state.profileInfo.home_town);
+        // console.log(this.props.state.profileInfo.home_town);
         var homeTown = this.props.state.profileInfo.home_town;
       } else {var homeTown = null;}
       if (typeof this.props.state.profileInfo.relation !== 'undefined' && this.props.state.profileInfo.relation.length !== 0) {
-        console.log(this.props.state.profileInfo.relation);
+        // console.log(this.props.state.profileInfo.relation);
         var sp = this.props.state.profileInfo.relation;
       } else {var sp = null;} // цифра от 0 до 8 и это объект
       if (typeof this.props.state.profileInfo.relatives !== 'undefined' && this.props.state.profileInfo.relatives.length !== 0) {
-        console.log(this.props.state.profileInfo.relatives);
+        // console.log(this.props.state.profileInfo.relatives);
         var family = this.props.state.profileInfo.relatives;
       } else {var family = null;} // Это объект
       if (typeof this.props.state.profileInfo.personal !== 'undefined' && this.props.state.profileInfo.personal.length !== 0) {
-        console.log(this.props.state.profileInfo.personal);
+        // console.log(this.props.state.profileInfo.personal);
         var views = this.props.state.profileInfo.personal;
       } else {var views = null;} // Это объект 
       if (typeof this.props.state.profileInfo.occupation !== 'undefined'  && this.props.state.profileInfo.occupation.length !== 0) {
-        console.log(this.props.state.profileInfo.occupation);
+        // console.log(this.props.state.profileInfo.occupation);
         var work = this.props.state.profileInfo.occupation;
       } else {var work = null;} // Это объект
       if (typeof this.props.state.profileInfo.schools !== 'undefined' && this.props.state.profileInfo.schools.length !== 0) {
-        console.log(this.props.state.profileInfo.schools);
+        // console.log(this.props.state.profileInfo.schools);
         var school = this.props.state.profileInfo.schools;
       } else {var school = null;} // Это объект
       if (typeof this.props.state.profileInfo.education !== 'undefined' && this.props.state.profileInfo.education.length !== 0) {
-        console.log(this.props.state.profileInfo.education);
+        // console.log(this.props.state.profileInfo.education);
         var education = this.props.state.profileInfo.education;
       } else {var education = null;} // Это объект
       if (typeof this.props.state.profileInfo.universities !== 'undefined' && this.props.state.profileInfo.universities.length !== 0) {
-        console.log(this.props.state.profileInfo.universities);
+        // console.log(this.props.state.profileInfo.universities);
         var universities = this.props.state.profileInfo.universities;
       } else {var universities = null;} // Это объект
       if (typeof this.props.state.profileInfo.military !== 'undefined'  && this.props.state.profileInfo.military.length !== 0) {
-        console.log(this.props.state.profileInfo.military);
+        // console.log(this.props.state.profileInfo.military);
         var military = this.props.state.profileInfo.military;
       } else {var military = null;}  // Это объект
       if (typeof this.props.state.profileInfo.career !== 'undefined'  && this.props.state.profileInfo.career.length !== 0 ) {
-        console.log(this.props.state.profileInfo.career);
+        // console.log(this.props.state.profileInfo.career);
         var career = this.props.state.profileInfo.career;
       } else {var career = null;}
       if (typeof this.props.state.profileInfo.interests !== 'undefined') {
-        console.log(this.props.state.profileInfo.interests);
+        // console.log(this.props.state.profileInfo.interests);
         var interests = this.props.state.profileInfo.interests;
       } else {var interests = null;}
       if (typeof this.props.state.profileInfo.quotes !== 'undefined') {
-        console.log(this.props.state.profileInfo.quotes);
+        // console.log(this.props.state.profileInfo.quotes);
         var quotes = this.props.state.profileInfo.quotes
       } else {var quotes = null;}
       if (typeof this.props.state.profileInfo.books !== 'undefined') {
-        console.log(this.props.state.profileInfo.books);
+        // console.log(this.props.state.profileInfo.books);
         var books = this.props.state.profileInfo.books;
       } else {var books = null;}
       if (typeof this.props.state.profileInfo.movies !== 'undefined') {
-        console.log(this.props.state.profileInfo.movies);
+        // console.log(this.props.state.profileInfo.movies);
         var movies = this.props.state.profileInfo.movies;
       } else {var movies = null;}
       if (typeof this.props.state.profileInfo.music !== 'undefined') {
-        console.log(this.props.state.profileInfo.music);
+        // console.log(this.props.state.profileInfo.music);
         var music = this.props.state.profileInfo.music;
       } else {var music = null;}
       if (typeof this.props.state.profileInfo.games !== 'undefined') {
-        console.log(this.props.state.profileInfo.games);
+        // console.log(this.props.state.profileInfo.games);
         var games = this.props.state.profileInfo.games;
       } else {var games = null;}
       if (typeof this.props.state.profileInfo.tv !== 'undefined') {
-        console.log(this.props.state.profileInfo.tv);
+        // console.log(this.props.state.profileInfo.tv);
         var tv = this.props.state.profileInfo.tv;
       } else {var tv = null;}
       return(
       <>
-      <button onClick={() => this.packingResponse()}></button>
       <h1>Это профиль номер {id}</h1>
       <div className="block1">
         <img className='photo' src={photo} vspace="5" hspace="5"/>
         <div className="block1__elm1">
-        <h1>{fName,nName,lName, mName, verif, online}</h1>
-          <h3>Статус {status}</h3>
-          <pre>День рождения {bDate}</pre>
-          <pre>Пол {gender}
-          </pre>
+        <h1>{fName+' '+lName}</h1>
+          <h3>Статус:<i>{status}</i></h3>
+          <h4>День рождения {bDate}</h4>
+          <h4>Пол: {gender}</h4>
           <div className="block1__elm2">
-          {domain,' ',
-          pageName,' ',
-          webSite}
+          <p>Краткое имя страницы: {pageName}</p>
+          <p>Сайт:{webSite}</p>
           {/* phoneNumber 
           contacts */}
           </div>

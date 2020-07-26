@@ -8,6 +8,7 @@ const initialState = {
   response: [],
   id: undefined,
   profileInfo: undefined,
+  scroll: 0,
 };
 
 export default initialState;

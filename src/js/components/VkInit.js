@@ -7,11 +7,7 @@ export default class VkInit extends React.Component {
   }
   render(){
     return(
-      <>
       <div id="vk_api_transport"></div>
-      <a href='http://localhost:8081/'>Назад</a>
-      <button onClick= {() => VK.Auth.login((res) => console.log(res))}>VK</button>
-      </>
     )
   }
 }

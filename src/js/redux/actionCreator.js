@@ -1,4 +1,4 @@
-import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION, SEARCH_REQUEST, TARGET_TRANSFER, CHANGE_PAGE, SAVE_RESPONSE, SAVE_ID, SAVE_PROFILE_INFO} from './action.js';
+import {PRELOADER_BOOLEAN, DOWNLOAD_FINISHED, COUNT_OFFSET, LIST_CREATION, SEARCH_REQUEST, TARGET_TRANSFER, CHANGE_PAGE, SAVE_RESPONSE, SAVE_ID, SAVE_PROFILE_INFO, SAVE_SCROLL} from './action.js';
 
 function preloaderBoolean(value) {
   return {
@@ -70,5 +70,12 @@ function saveProfileInfo(value) {
   }
 }
 
+function saveScroll(value) {
+  return {
+    type: SAVE_SCROLL,
+    value : value
+  }
+}
 
-export { preloaderBoolean, downloadFinished, countOffset, listCreation, searchRequest, targetTransfer, changePage, saveResponse, saveId, saveProfileInfo}
+
+export { preloaderBoolean, downloadFinished, countOffset, listCreation, searchRequest, targetTransfer, changePage, saveResponse, saveId, saveProfileInfo, saveScroll}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { preloaderBoolean, saveResponse, countOffset, targetTransfer, downloadFinished } from '../redux/actionCreator.js';
-// import packing from '../functions/packing.js'
+import { preloaderBoolean, countOffset, targetTransfer, downloadFinished, saveScroll } from '../redux/actionCreator.js';
 import Preloader from './Preloader.js';
 import ListItems from './ListItems.js';
 import Profile from './Profile.js';
@@ -23,6 +22,7 @@ class Content extends React.Component {
   }
   
   scrolling (e) {
+    this.props.saveScroll(e.target.scrollTop)
     let offSet = this.props.state.offset
     if (e.target.scrollTop >= (e.target.scrollHeight-e.target.clientHeight-20) && !this.props.state.preloader) {
       this.props.preloaderBoolean(true)
@@ -48,7 +48,6 @@ class Content extends React.Component {
     if (this.props.state.page == 'SEARCH'){
       return(
         <div ref={this.elementDiv} onScroll={this.scrolling} className='content'>
-          {/* <button onClick={() => console.log(this.props.preloaderBoolean(true))}>Жми</button> */}
           <ListItems />
           <Preloader />
         </div>
@@ -74,7 +73,7 @@ const mapStateToProps = (state) => ({state})
 
 const mapDispatchToProps = (dispatch) => ({
   countOffset: (params) => dispatch(countOffset(params)),
-  saveResponse: (params) => dispatch(saveResponse(params)),
+  saveScroll: (params) => dispatch(saveScroll(params)),
   preloaderBoolean: (params) => dispatch(preloaderBoolean(params)),
   targetTransfer: (params) => dispatch(targetTransfer(params)),
   downloadFinished: (params) => dispatch(downloadFinished(params)),
