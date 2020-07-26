@@ -85,7 +85,6 @@ class Profile extends React.Component {
         // console.log(this.props.state.profileInfo.site);
         var webSite = this.props.state.profileInfo.site;
       } else {var webSite = null;}
-       console.log(this.props.state.profileInfo.counters);
         var count = this.props.state.profileInfo.counters;
       if (typeof this.props.state.profileInfo.about !== 'undefined') {
         var about = this.props.state.profileInfo.about;
@@ -103,19 +102,19 @@ class Profile extends React.Component {
         var sp = this.props.state.profileInfo.relation;
         switch(sp){
           case 0: sp = 'Не указанно'; break
-          case 1: if(gender == 2) {sp = 'Не женат'; break}
-                  else {sp = 'Не замужем'; break}
-          case 2: if(gender == 2) {sp = 'Есть подруга'; break}
-                  else {sp = 'Есть друг'; break}
-          case 3: if(gender == 2) {sp = 'Помолвлен'; break}
-                  else {sp = 'Помолвлена'; break}
-          case 4: if(gender == 2) {sp = 'Женат'; break}
-                  else {sp = 'Замужем'; break}
-          case 5: sp = 'Всё сложно'; break
-          case 6: sp = 'В активном поиске'; break
-          case 7: if(gender == 2) {sp = 'Влюблён'; break}
-                  else {sp = 'Влюблёна'; break}
-          case 8: sp = 'В гражданском браке'; break
+          case 1: {if(gender == 2) {sp = 'Не женат'; break}
+                  else {sp = 'Не замужем'; break}}
+          case 2: {if(gender == 2) {sp = 'Есть подруга'; break}
+                  else {sp = 'Есть друг'; break}}
+          case 3: {if(gender == 2) {sp = 'Помолвлен'; break}
+                  else {sp = 'Помолвлена'; break}}
+          case 4: {if(gender == 2) {sp = 'Женат'; break}
+                  else {sp = 'Замужем'; break}}
+          case 5: {sp = 'Всё сложно'; break}
+          case 6: {sp = 'В активном поиске'; break}
+          case 7: {if(gender == 2) {sp = 'Влюблён'; break}
+                  else {sp = 'Влюблена'; break}}
+          case 8: {sp = 'В гражданском браке'; break}
         }
       } else {var sp = null;}
       if (typeof this.props.state.profileInfo.relatives !== 'undefined' && this.props.state.profileInfo.relatives.length !== 0) {
@@ -125,53 +124,70 @@ class Profile extends React.Component {
       if (typeof this.props.state.profileInfo.personal !== 'undefined' && this.props.state.profileInfo.personal.length !== 0) {
         console.log(this.props.state.profileInfo.personal);
         var views = this.props.state.profileInfo.personal;
+        var political, people_main, life_main, smoking, alcohol
+
         switch(views.political) {
-          case 1 : views.political = 'коммунистические'; break;
-          case 2 : views.political = 'социалистические'; break;
-          case 3 : views.political = 'умеренные'; break;
-          case 4 : views.political = 'либеральные'; break;
-          case 5 : views.political = 'консервативные'; break;
-          case 6 : views.political = 'монархические'; break;
-          case 7 : views.political = 'ультраконсервативные'; break;
-          case 8 : views.political = 'индифферентные'; break;
-          case 9 : views.political = 'либертарианские'; break;
+          case 1 : political = 'коммунистические'; break;
+          case 2 : political = 'социалистические'; break;
+          case 3 : political = 'умеренные'; break;
+          case 4 : political = 'либеральные'; break;
+          case 5 : political = 'консервативные'; break;
+          case 6 : political = 'монархические'; break;
+          case 7 : political = 'ультраконсервативные'; break;
+          case 8 : political = 'индифферентные'; break;
+          case 9 : political = 'либертарианские'; break;
         }
         switch(views.people_main) {
-          case 1 : views.people_main = 'ум и креативность'; break;
-          case 2 : views.people_main = 'доброта и честность'; break;
-          case 3 : views.people_main = 'красота и здоровье'; break;
-          case 4 : views.people_main = 'власть и богатство'; break;
-          case 5 : views.people_main = 'смелость и упорство'; break;
-          case 6 : views.people_main = 'юмор и жизнелюбие'; break;
+          case 1 : people_main = 'ум и креативность'; break;
+          case 2 : people_main = 'доброта и честность'; break;
+          case 3 : people_main = 'красота и здоровье'; break;
+          case 4 : people_main = 'власть и богатство'; break;
+          case 5 : people_main = 'смелость и упорство'; break;
+          case 6 : people_main = 'юмор и жизнелюбие'; break;
         }       
         switch(views.life_main) {
-          case 1 : views.life_main = 'семья и дети'; break;
-          case 2 : views.life_main = 'карьера и деньги'; break;
-          case 3 : views.life_main = 'развлечения и отдых'; break;
-          case 4 : views.life_main = 'наука и исследования'; break;
-          case 5 : views.life_main = 'совершенствование мира'; break;
-          case 6 : views.life_main = 'саморазвитие'; break;
-          case 7 : views.life_main = 'красота и искусство'; break;
-          case 8 : views.life_main = 'слава и влияние'; break;
+          case 1 : life_main = 'семья и дети'; break;
+          case 2 : life_main = 'карьера и деньги'; break;
+          case 3 : life_main = 'развлечения и отдых'; break;
+          case 4 : life_main = 'наука и исследования'; break;
+          case 5 : life_main = 'совершенствование мира'; break;
+          case 6 : life_main = 'саморазвитие'; break;
+          case 7 : life_main = 'красота и искусство'; break;
+          case 8 : life_main = 'слава и влияние'; break;
         }  
         switch(views.smoking) {
-          case 1 : views.smoking = 'резко негативное'; break;
-          case 2 : views.smoking = 'негативное'; break;
-          case 3 : views.smoking = 'компромиссное'; break;
-          case 4 : views.smoking = 'нейтральное'; break;
-          case 5 : views.smoking = 'положительное'; break;
+          case 1 : smoking = 'резко негативное'; break;
+          case 2 : smoking = 'негативное'; break;
+          case 3 : smoking = 'компромиссное'; break;
+          case 4 : smoking = 'нейтральное'; break;
+          case 5 : smoking = 'положительное'; break;
         }        
         switch(views.alcohol) {
-          case 1 : views.alcohol = 'резко негативное'; break;
-          case 2 : views.alcohol = 'негативное'; break;
-          case 3 : views.alcohol = 'компромиссное'; break;
-          case 4 : views.alcohol = 'нейтральное'; break;
-          case 5 : views.alcohol = 'положительное'; break;
+          case 1 : alcohol = 'резко негативное'; break;
+          case 2 : alcohol = 'негативное'; break;
+          case 3 : alcohol = 'компромиссное'; break;
+          case 4 : alcohol = 'нейтральное'; break;
+          case 5 : alcohol = 'положительное'; break;
+        }
+        var langs = ''
+        if (typeof views.langs !== 'undefined') {
+          langs = views.langs.map((currentItem)=>{
+            langs=' '+currentItem;
+            return(langs)
+          })
         }
       } else {var views = null;} // Это объект 
       if (typeof this.props.state.profileInfo.occupation !== 'undefined'  && this.props.state.profileInfo.occupation.length !== 0) {
-        // console.log(this.props.state.profileInfo.occupation);
+        console.log(this.props.state.profileInfo.occupation);
         var work = this.props.state.profileInfo.occupation;
+        var type;
+        var nameWork = '';
+        switch(work.type) {
+          case 'work' : type = 'Работаю'; break;
+          case 'school' : type = 'Учусь в школе'; break;
+          case 'university' : type = 'Учусь в ВУЗе'; break;
+        }
+        if(typeof work.name !== 'undefined'){nameWork = work.name}
       } else {var work = null;} // Это объект
       if (typeof this.props.state.profileInfo.schools !== 'undefined' && this.props.state.profileInfo.schools.length !== 0) {
         // console.log(this.props.state.profileInfo.schools);
@@ -260,70 +276,16 @@ class Profile extends React.Component {
         <p>Обо мне:{about}</p>
         <h4>Взгляды:</h4>
         <ul>
-          <li>Политические:{views.political}</li>
-          <li>Главное в людях:{views.people_main}</li>
-          <li>Главное в жизни:{views.life_main}</li>
-          <li>Отношение к курению:{views.smoking}</li>
-          <li>Отношение к алкоголю:{views.alcohol}</li>
+          <li>Политические:{political}</li>
+          <li>Главное в людях:{people_main}</li>
+          <li>Главное в жизни:{life_main}</li>
+          <li>Отношение к курению:{smoking}</li>
+          <li>Отношение к алкоголю:{alcohol}</li>
         </ul>
+        <p>Языки:{langs}</p>
+        <p>Занятость:{type}</p>
+        <p>Место занятости:{nameWork}</p>
         {/*
-        relatives
-          id (integer) — идентификатор пользователя;
-          name (string) — имя родственника (если родственник не является пользователем ВКонтакте, то предыдущее значение id возвращено не будет);
-          type (string) — тип родственной связи. Возможные значения:
-            child — сын/дочь;
-            sibling — брат/сестра;
-            parent — отец/мать;
-            grandparent — дедушка/бабушка;
-            grandchild — внук/внучка.
-        personal
-          political (integer) — политические предпочтения. Возможные значения:
-            1 — коммунистические;
-            2 — социалистические;
-            3 — умеренные;
-            4 — либеральные;
-            5 — консервативные;
-            6 — монархические;
-            7 — ультраконсервативные;
-            8 — индифферентные;
-            9 — либертарианские.
-          langs (array) — языки.
-          religion (string) — мировоззрение.
-          inspired_by (string) — источники вдохновения.
-          people_main (integer) — главное в людях. Возможные значения:
-            1 — ум и креативность;
-            2 — доброта и честность;
-            3 — красота и здоровье;
-            4 — власть и богатство;
-            5 — смелость и упорство;
-            6 — юмор и жизнелюбие.
-          life_main (integer) — главное в жизни. Возможные значения:
-            1 — семья и дети;
-            2 — карьера и деньги;
-            3 — развлечения и отдых;
-            4 — наука и исследования;
-            5 — совершенствование мира;
-            6 — саморазвитие;
-            7 — красота и искусство;
-            8 — слава и влияние;
-          smoking (integer) — отношение к курению. Возможные значения:
-            1 — резко негативное;
-            2 — негативное;
-            3 — компромиссное;
-            4 — нейтральное;
-            5 — положительное.
-          alcohol (integer) — отношение к алкоголю. Возможные значения:
-            1 — резко негативное;
-            2 — негативное;
-            3 — компромиссное;
-            4 — нейтральное;
-            5 — положительное.
-        occupation
-          type (string) — тип. Возможные значения:
-            work — работа;
-            school — среднее образование;
-            university — высшее образование.
-          name (string) — название школы, вуза или места работы;
         schools
           name (string) — наименование школы
           year_from (integer) — год начала обучения;
