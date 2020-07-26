@@ -11,7 +11,7 @@ class Profile extends React.Component {
   extendedQuery(id) {
     VK.Api.call('users.get', 
     {user_ids: id,
-    fields: 'sex,id,first_name,last_name,is_closed,about,activities,bdate,books,career,city,common_count,connections,contacts,counters,domain,country,education,games,home_town,interests,last_seen,military,movies,music,nickname,occupation,online,personal,photo_200_orig,photo_400_orig,photo_max_orig,quotes,relatives,relation,schools,screen_name,site,status,tv,universities,verified,',
+    fields: 'sex,id,first_name,last_name,is_closed,about,activities,bdate,books,career,city,common_count,connections,contacts,counters,domain,country,education,games,home_town,interests,last_seen,military,movies,music,nickname,occupation,online,personal,photo_max_orig,quotes,relatives,relation,schools,screen_name,site,status,tv,universities,verified,',
     count : 10, offset : 0 ,v:"5.52"
     },(r) => {
       let info = r.response[0];
@@ -70,7 +70,20 @@ class Profile extends React.Component {
       if (typeof this.props.state.profileInfo.site !== 'undefined') {
         var webSite = this.props.state.profileInfo.site;
       } else {var webSite = null;}
+      if (typeof this.props.state.profileInfo.about !== 'undefined') {
         var count = this.props.state.profileInfo.counters;
+        var friends = count.friends
+        var online_friends = count.online_friends
+        var mutual_friends = count.mutual_friends
+        var followers = count.followers
+        var albums = count.albums
+        var photos = count.photos
+        var videos = count.videos
+        var audios = count.audios
+        var gifts = count.gifts
+        var notes = count.notes
+        var pages = count.pages
+      } else {var about = null;}
       if (typeof this.props.state.profileInfo.about !== 'undefined') {
         var about = this.props.state.profileInfo.about;
       } else {var about = null;}
@@ -232,17 +245,17 @@ class Profile extends React.Component {
       </div>
       <div className="block2">
         <div className='block2__caunters' >
-          <div className='block2__caunter'>Количество друзей{' '+count.friends}</div>
-          <div className='block2__caunter'>Количество друзей онлайн{' '+count.online_friends}</div>
-          <div className='block2__caunter'>Количество общих друзей{' '+count.mutual_friends}</div>
-          <div className='block2__caunter'>Количество подписчиков{' '+count.followers}</div>
-          <div className='block2__caunter'>Количество альбомов{' '+count.albums}</div>
-          <div className='block2__caunter'>Количество фотографий{' '+count.photos}</div>
-          <div className='block2__caunter'>Количество видео{' '+count.videos}</div>
-          <div className='block2__caunter'>Количество аудиозаписей{' '+count.audios}</div>
-          <div className='block2__caunter'>Количество документов{' '+count.gifts}</div>
-          <div className='block2__caunter'>Количество заметок{' '+count.notes}</div>
-          <div className='block2__caunter'>Количество интересных страниц{' '+count.pages}</div>
+          <div className='block2__caunter'>Количество друзей{' '+friends}</div>
+          <div className='block2__caunter'>Количество друзей онлайн{' '+online_friends}</div>
+          <div className='block2__caunter'>Количество общих друзей{' '+mutual_friends}</div>
+          <div className='block2__caunter'>Количество подписчиков{' '+followers}</div>
+          <div className='block2__caunter'>Количество альбомов{' '+albums}</div>
+          <div className='block2__caunter'>Количество фотографий{' '+photos}</div>
+          <div className='block2__caunter'>Количество видео{' '+videos}</div>
+          <div className='block2__caunter'>Количество аудиозаписей{' '+audios}</div>
+          <div className='block2__caunter'>Количество документов{' '+gifts}</div>
+          <div className='block2__caunter'>Количество заметок{' '+notes}</div>
+          <div className='block2__caunter'>Количество интересных страниц{' '+pages}</div>
         </div>
         <p>Страна:{country}</p>
         <p>Город:{city}</p>
