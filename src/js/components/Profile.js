@@ -49,9 +49,10 @@ class Profile extends React.Component {
       if (typeof this.props.state.profileInfo.online !== 'undefined') {
         // console.log(this.props.state.profileInfo.online);
         var online = this.props.state.profileInfo.online
+        if (online) {online='да'}
+        else {online='нет'}
       } else {var online = null;}
       if (typeof this.props.state.profileInfo.last_seen !== 'undefined') {
-        // console.log(this.props.state.profileInfo.last_seen);
         var lastSeen = this.props.state.profileInfo.last_seen
       } else {var lastSeen = null;}
       if (typeof this.props.state.profileInfo.status !== 'undefined') {
@@ -64,25 +65,20 @@ class Profile extends React.Component {
       if (gender == 1) {gender = 'Женский'}
       else if (gender == 2) {gender = 'Мужской'}
       else if (gender == 0) {gender = 'Пол не указан'}
-      else {var gender = null;} // 1 или 2 или 0
+      else {var gender = null;}
       if (typeof this.props.state.profileInfo.domain !== 'undefined') {
-        // console.log(this.props.state.profileInfo.domain);
         var domain = this.props.state.profileInfo.domain;
       } else {var domain = null;}
       if (typeof this.props.state.profileInfo.screen_name !== 'undefined') {
-        // console.log(this.props.state.profileInfo.screen_name);
         var pageName = this.props.state.profileInfo.screen_name;
       } else {var pageName = null;}
       if (typeof this.props.state.profileInfo.contacts !== 'undefined') {
-        // console.log(this.props.state.profileInfo.contacts);
         var phoneNumber = this.props.state.profileInfo.contacts;
-      } else {var phoneNumber = null;} // это объект
+      } else {var phoneNumber = null;}
       if (typeof this.props.state.profileInfo.connections !== 'undefined') {
-        // console.log(this.props.state.profileInfo.connections);
         var contacts = this.props.state.profileInfo.connections;
-      } else {var contacts = null;} // Это объект
+      } else {var contacts = null;}
       if (typeof this.props.state.profileInfo.site !== 'undefined') {
-        // console.log(this.props.state.profileInfo.site);
         var webSite = this.props.state.profileInfo.site;
       } else {var webSite = null;}
         var count = this.props.state.profileInfo.counters;
@@ -91,10 +87,10 @@ class Profile extends React.Component {
       } else {var about = null;}
       if (typeof this.props.state.profileInfo.country !== 'undefined') {
         var country =  this.props.state.profileInfo.country.title;
-      } else {var country = null;} // Это объект
+      } else {var country = null;}
       if (typeof this.props.state.profileInfo.city !== 'undefined') {
         var city = this.props.state.profileInfo.city.title;
-      } else {var city = null;}// Это объект
+      } else {var city = null;}
       if (typeof this.props.state.profileInfo.home_town !== 'undefined') {
         var homeTown = this.props.state.profileInfo.home_town;
       } else {var homeTown = null;}
@@ -117,10 +113,6 @@ class Profile extends React.Component {
           case 8: {sp = 'В гражданском браке'; break}
         }
       } else {var sp = null;}
-      if (typeof this.props.state.profileInfo.relatives !== 'undefined' && this.props.state.profileInfo.relatives.length !== 0) {
-        // console.log(this.props.state.profileInfo.relatives);
-        var family = this.props.state.profileInfo.relatives;
-      } else {var family = null;} // Это объект
       if (typeof this.props.state.profileInfo.personal !== 'undefined' && this.props.state.profileInfo.personal.length !== 0) {
         console.log(this.props.state.profileInfo.personal);
         var views = this.props.state.profileInfo.personal;
@@ -210,31 +202,24 @@ class Profile extends React.Component {
         var career = this.props.state.profileInfo.career;
       } else {var career = null;}
       if (typeof this.props.state.profileInfo.interests !== 'undefined') {
-        // console.log(this.props.state.profileInfo.interests);
         var interests = this.props.state.profileInfo.interests;
       } else {var interests = null;}
       if (typeof this.props.state.profileInfo.quotes !== 'undefined') {
-        // console.log(this.props.state.profileInfo.quotes);
         var quotes = this.props.state.profileInfo.quotes
       } else {var quotes = null;}
       if (typeof this.props.state.profileInfo.books !== 'undefined') {
-        // console.log(this.props.state.profileInfo.books);
         var books = this.props.state.profileInfo.books;
       } else {var books = null;}
       if (typeof this.props.state.profileInfo.movies !== 'undefined') {
-        // console.log(this.props.state.profileInfo.movies);
         var movies = this.props.state.profileInfo.movies;
       } else {var movies = null;}
       if (typeof this.props.state.profileInfo.music !== 'undefined') {
-        // console.log(this.props.state.profileInfo.music);
         var music = this.props.state.profileInfo.music;
       } else {var music = null;}
       if (typeof this.props.state.profileInfo.games !== 'undefined') {
-        // console.log(this.props.state.profileInfo.games);
         var games = this.props.state.profileInfo.games;
       } else {var games = null;}
       if (typeof this.props.state.profileInfo.tv !== 'undefined') {
-        // console.log(this.props.state.profileInfo.tv);
         var tv = this.props.state.profileInfo.tv;
       } else {var tv = null;}
       return(
@@ -245,6 +230,7 @@ class Profile extends React.Component {
         <div className="block1__elm1">
         <h1>{fName+' '+lName}</h1>
           <h3>Статус:<i>{status}</i></h3>
+          <h4>Онлайн:<i>{online}</i></h4>
           <h4>День рождения {bDate}</h4>
           <h4>Пол: {gender}</h4>
           <div className="block1__elm2">
