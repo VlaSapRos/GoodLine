@@ -61,9 +61,9 @@ class Profile extends React.Component {
         var bDate = this.props.state.profileInfo.bdate;
       } else {var bDate = null;}
       var gender = this.props.state.profileInfo.sex;
-      if (gender == 2) {gender = 'Женский'}
-      else if (gender == 1) {gender = 'Мужской'}
-      else if (gender == 1) {gender = 'Пол не указан'}
+      if (gender == 1) {gender = 'Женский'}
+      else if (gender == 2) {gender = 'Мужской'}
+      else if (gender == 0) {gender = 'Пол не указан'}
       else {var gender = null;} // 1 или 2 или 0
       if (typeof this.props.state.profileInfo.domain !== 'undefined') {
         // console.log(this.props.state.profileInfo.domain);
@@ -85,30 +85,53 @@ class Profile extends React.Component {
         // console.log(this.props.state.profileInfo.site);
         var webSite = this.props.state.profileInfo.site;
       } else {var webSite = null;}
-      if (typeof this.props.state.profileInfo.counters !== 'undefined') {
-        // console.log(this.props.state.profileInfo.counters);
+       console.log(this.props.state.profileInfo.counters);
         var count = this.props.state.profileInfo.counters;
-      } else {var count = null;} // Это объект
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
       if (typeof this.props.state.profileInfo.about !== 'undefined') {
-        // console.log(this.props.state.profileInfo.about);
         var about = this.props.state.profileInfo.about;
       } else {var about = null;}
-      if (typeof this.props.state.profileInfo.country!== 'undefined') {
-        // console.log(this.props.state.profileInfo.country.title);
+      if (typeof this.props.state.profileInfo.country !== 'undefined') {
         var country =  this.props.state.profileInfo.country.title;
       } else {var country = null;} // Это объект
       if (typeof this.props.state.profileInfo.city !== 'undefined') {
-        // console.log(this.props.state.profileInfo.city.title);
         var city = this.props.state.profileInfo.city.title;
       } else {var city = null;}// Это объект
       if (typeof this.props.state.profileInfo.home_town !== 'undefined') {
-        // console.log(this.props.state.profileInfo.home_town);
         var homeTown = this.props.state.profileInfo.home_town;
       } else {var homeTown = null;}
       if (typeof this.props.state.profileInfo.relation !== 'undefined' && this.props.state.profileInfo.relation.length !== 0) {
-        // console.log(this.props.state.profileInfo.relation);
         var sp = this.props.state.profileInfo.relation;
-      } else {var sp = null;} // цифра от 0 до 8 и это объект
+        switch(sp){
+          case 0: sp = 'Не указанно'; break
+          case 1: if(gender == 2) {sp = 'Не женат'; break}
+                  else {sp = 'Не замужем'; break}
+          case 2: if(gender == 2) {sp = 'Есть подруга'; break}
+                  else {sp = 'Есть друг'; break}
+          case 3: if(gender == 2) {sp = 'Помолвлен'; break}
+                  else {sp = 'Помолвлена'; break}
+          case 4: if(gender == 2) {sp = 'Женат'; break}
+                  else {sp = 'Замужем'; break}
+          case 5: sp = 'Всё сложно'; break
+          case 6: sp = 'В активном поиске'; break
+          case 7: if(gender == 2) {sp = 'Влюблён'; break}
+                  else {sp = 'Влюблёна'; break}
+          case 8: sp = 'В гражданском браке'; break
+        }
+      } else {var sp = null;}
       if (typeof this.props.state.profileInfo.relatives !== 'undefined' && this.props.state.profileInfo.relatives.length !== 0) {
         // console.log(this.props.state.profileInfo.relatives);
         var family = this.props.state.profileInfo.relatives;
@@ -188,6 +211,22 @@ class Profile extends React.Component {
         </div>
       </div>
       <div className="block2">
+        <div className='block2__caunters' >
+          <div className='block2__caunter'>{count.albums}</div>
+          <div className='block2__caunter'>{count.audios}</div>
+          <div className='block2__caunter'>{count.clips}</div>
+          <div className='block2__caunter'>{count.clips_followers}</div>
+          <div className='block2__caunter'>{count.followers}</div>
+          <div className='block2__caunter'>{count.friends}</div>
+          <div className='block2__caunter'>{count.gifts}</div>
+          <div className='block2__caunter'>{count.mutual_friends}</div>
+          <div className='block2__caunter'>{count.notes}</div>
+          <div className='block2__caunter'>{count.online_friends}</div>
+          <div className='block2__caunter'>{count.pages}</div>
+          <div className='block2__caunter'>{count.photos}</div>
+          <div className='block2__caunter'>{count.subscriptions}</div>
+          <div className='block2__caunter'>{count.videos}</div>
+        </div>
         {/* counters
           albums (integer) — количество фотоальбомов;
           videos (integer) — количество видеозаписей;
@@ -201,10 +240,11 @@ class Profile extends React.Component {
           user_videos (integer) — количество видеозаписей с пользователем;
           followers (integer) — количество подписчиков;
           pages (integer) — количество объектов в блоке «Интересные страницы» */}
-        {about,' ',
-        country,' ',
-        city,' ',
-        homeTown}
+        <p>Страна:{country}</p>
+        <p>Город:{city}</p>
+        <p>Родной город:{homeTown}</p>
+        <p>Семейное положение:{sp}</p>
+        <p>Обо мне:{about}</p>
         {/* sp
           1 — не женат/не замужем;
           2 — есть друг/есть подруга;
@@ -312,14 +352,13 @@ class Profile extends React.Component {
           unit (string) — номер части;
           from (integer) — год начала службы;
           until (integer) — год окончания службы. */}
-        {career,' ',
-        interests,' ',
-        quotes,' ',
-        books,' ',
-        movies,' ',
-        music,' ',
-        games,' ',
-        tv}
+        {/* <p>Карьера:{career}</p> */}
+        <p>Интересы:{interests}</p>
+        <p>Любимые цитаты:{quotes}</p>
+        <p>Любимые книги:{books}</p>
+        <p>Любимые фильмы:{movies}</p>
+        <p>Любимая музыка:{music}</p>
+        <p>Любимые телефошу:{tv}</p>
       </div>
       <div className="block3">
       </div>
