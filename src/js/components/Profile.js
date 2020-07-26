@@ -87,20 +87,6 @@ class Profile extends React.Component {
       } else {var webSite = null;}
        console.log(this.props.state.profileInfo.counters);
         var count = this.props.state.profileInfo.counters;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
       if (typeof this.props.state.profileInfo.about !== 'undefined') {
         var about = this.props.state.profileInfo.about;
       } else {var about = null;}
@@ -212,34 +198,18 @@ class Profile extends React.Component {
       </div>
       <div className="block2">
         <div className='block2__caunters' >
-          <div className='block2__caunter'>{count.albums}</div>
-          <div className='block2__caunter'>{count.audios}</div>
-          <div className='block2__caunter'>{count.clips}</div>
-          <div className='block2__caunter'>{count.clips_followers}</div>
-          <div className='block2__caunter'>{count.followers}</div>
-          <div className='block2__caunter'>{count.friends}</div>
-          <div className='block2__caunter'>{count.gifts}</div>
-          <div className='block2__caunter'>{count.mutual_friends}</div>
-          <div className='block2__caunter'>{count.notes}</div>
-          <div className='block2__caunter'>{count.online_friends}</div>
-          <div className='block2__caunter'>{count.pages}</div>
-          <div className='block2__caunter'>{count.photos}</div>
-          <div className='block2__caunter'>{count.subscriptions}</div>
-          <div className='block2__caunter'>{count.videos}</div>
+          <div className='block2__caunter'>Количество друзей{' '+count.friends}</div>
+          <div className='block2__caunter'>Количество друзей онлайн{' '+count.online_friends}</div>
+          <div className='block2__caunter'>Количество общих друзей{' '+count.mutual_friends}</div>
+          <div className='block2__caunter'>Количество подписчиков{' '+count.followers}</div>
+          <div className='block2__caunter'>Количество альбомов{' '+count.albums}</div>
+          <div className='block2__caunter'>Количество фотографий{' '+count.photos}</div>
+          <div className='block2__caunter'>Количество видео{' '+count.videos}</div>
+          <div className='block2__caunter'>Количество аудиозаписей{' '+count.audios}</div>
+          <div className='block2__caunter'>Количество документов{' '+count.gifts}</div>
+          <div className='block2__caunter'>Количество заметок{' '+count.notes}</div>
+          <div className='block2__caunter'>Количество интересных страниц{' '+count.pages}</div>
         </div>
-        {/* counters
-          albums (integer) — количество фотоальбомов;
-          videos (integer) — количество видеозаписей;
-          audios (integer) — количество аудиозаписей;
-          photos (integer) — количество фотографий;
-          notes (integer) — количество заметок;
-          friends (integer) — количество друзей;
-          groups (integer) — количество сообществ;
-          online_friends (integer) — количество друзей онлайн;
-          mutual_friends (integer) — количество общих друзей;
-          user_videos (integer) — количество видеозаписей с пользователем;
-          followers (integer) — количество подписчиков;
-          pages (integer) — количество объектов в блоке «Интересные страницы» */}
         <p>Страна:{country}</p>
         <p>Город:{city}</p>
         <p>Родной город:{homeTown}</p>
